@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,8 @@ Route::get('/example', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/add-student', [StudentController::class, 'create']);
+Route::post('/get-studentsdata', [StudentController::class, 'fetchStudentData']);
+Route::post('/save-student', [StudentController::class, 'store']);
+Route::get('/students', [StudentController::class, 'index']);
